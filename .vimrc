@@ -3,6 +3,7 @@ filetype plugin on
 set number
 set undodir=~/.vim/undodir
 set undofile
+set hlsearch
 
 "misc info"
 set showcmd
@@ -24,7 +25,6 @@ map <Right> <NOP>
 
 "must have .vim/swp created"
 set directory=$HOME/.vim/swp//
-filetype plugin on
 
 "searches recursively into current path"
 set path+=**
@@ -32,5 +32,3 @@ set wildmenu
 
 "tags jumping"
 command! MakeTags !ctags -R .
-
-
