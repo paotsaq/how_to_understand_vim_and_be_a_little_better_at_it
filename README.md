@@ -27,9 +27,10 @@ I spend more time at the computer than I do with virtually any person *in my lif
  - <code>nG</code> jumps to the *n*th line;
     *or*
  - <code>[?/][pattern]</code> jumps [backwards/forward] to a specific *pattern*;
- - <code>f</code> *finds* a character - this is *immensely* useful - and then ``;`` jumps to the next occurence;
+ - <code>f</code> *finds* a character - this is *immensely* useful - and then ``;`` jumps to the next occurence (``F``will lookup *backwards*);
  - <code>nw</code> jump to the *n*th word in line;
- - <code>h, j, k, l</code> fine movements for small adjustments (if you repeat these motions, odds are there was a more efficient way);
+ - <code>$/^</code> jump to the beginning or end of line, respectively;
+ - <code>h, j, k, l</code> fine movements for small adjustments (if you do these motions **repeatedly**, odds are there was a more efficient way);
 Thus, the general procedure should be to move with a major movement (a jump or a search), and then fine tune using word motions and then character motions.
 
 2. Having the basic workflow to navigate around the code, now you can unlock some simple specific keybindings for insertion and editing:
@@ -48,27 +49,82 @@ And don't let your future self be thrown off by this - but all of these commands
  - <code>c</code> *changes* text (deletes text, but also puts you on ``INSERT MODE``); 
  - <code>v</code> *selects* text;
 
-4. Now, just learn about some major motions and you'll be fine. **This** is what Vim is all about. I probably suck at explaining this.
+4. Now, just learn about some major motions and you'll be fine. **This** is what Vim is all about, but I probably suck at explaining this part.
 
-You can (and should) combine what we can think as *actions* (let's say, everything that was under heading number three) with motions (which we haven't really done yet). Practical example: suppose you have these rhymes in your file, and your cursor is at the beginning: ``M`` in Mary. 
+You can (and **should**) combine what we can think as *actions* (let's say, everything that was under heading number three) with motions (which we haven't really done yet). Practical example: suppose you have these rhymes in your file, and your cursor is at the beginning: ``M`` in Mary. 
 
 *Mary had a little lamb,
    Its fleece was white as snow*
 
-We want to change ``little`` for, say, ``loving``. Past you would right key to oblivion, of course, and all in ``INSERT MODE``. Future you will, more efficiently, ``f l cw loving ESC`` (with no spaces), which we will read as "*find ```l```; change word*", after which we input ``loving`` and then exit ``INSERT MODE``. That was sexy.
-Whenever you do *any* of ``d, c, v`` motions, you can use ``b, e, w`` (and some more to come) motions to specify *begin* or *end* of word, or just the whole *word*. Try it out.
-
-*Mary had a loving lamb,
-   Its fleece was white as snow*
-
-You might want, however, to change/delete/select - more generally, an *action* up until a certain character. Suppose cursor at the beginning: ``d`` in ``def``. 
+We want to change ``little`` for, say, ``loving``. The past you would right key to oblivion, of course, and all in ``INSERT MODE``; but future you will, more efficiently, ``f l cw loving ESC`` (with no spaces), which we will read as "*find ```l```; change word*", after which we input ``loving`` and then exit ``INSERT MODE``. That was sexy.
+Whenever you do *any* of ``d, c, v`` motions, you can use ``b, e, w`` (and some more to come) motions to specify *begin* or *end* of word ¹, or just the whole *word*. You might want, however, to change/delete/select - more generally, an *action* - up until a certain character. Suppose cursor at the beginning: ``d`` in ``def``. 
 
 <code>
 def very_sexy_function(my_arg, another_arg):
     return "most_holyness_of_sexy_vim"
 </code>
 
-Now my boss just came into work; he sees me doing some silly powerful stuff in Python and *of course* that function is sexy. But that is a very innapropriate behaviour in the workplace. I want to (most quickly!) change that!
+Now my boss just came into work; he sees me doing some silly powerful stuff in Python, and *of course* that function is sexy - but that is a very innapropriate behaviour in the workplace. I want to (most quickly!) change that!
  - <code>t/f</code> I don't really have good mnemonics for these (except *(un)til* for ``t``), but these are fundamental;
+So then, one could do ``fs``, which reads as "*find `s`*", and then `ct_` ("*change (un)til underscore*") - which would now place the cursor under ``
+INSERT MODE`` - and the name could now be ``very_appropriate_function`` instead.
 
+<code>
+def very_appropriate_function(my_arg, another_arg):
+    return "most_holyness_of_sexy_vim"
+</code>
 
+All is good, except for the second line - our command didn't take care of that. However - and this is another very powerful command - all that's needed is ``jfs.``, where the ``.`` (dot) will **repeat your last action**. In this case, it will ``ct_`` on the line just below (we did ``j``).
+
+5. There's more, but this is already too much information, and it's likely that I lost you halfway for VSCode anyway.
+
+Here are some good resources to improve your Vim:
+- DuckDuckGo: it's likely whatever problem you have, or feature you need implemented, is out there already. Look for it.
+- Vim Wiki: you will learn something on each visit. https://vim.fandom.com/wiki/
+- **Mastering Vim Quickly: From WTF to OMG in no time** by Jovica Ilic: the title is a little over-the-top (not that you're not used to that, right?) but the content is very good.
+
+Regarding my (minimalistic) ``.vimrc``:
+
+``syntax on
+filetype plugin on
+filetype plugin indent on
+set smartindent
+set hlsearch
+set showcmd
+set laststatus=2
+set statusline+=%F
+``
+
+These are obligatory. ``smartindent`` works really well for C (I mostly do that and Python), and ``hlsearch``is great to highlight matches on ``s``substitutions. ``showcmd`` is useful to show people some Vim tricks (the typed commands appear in the bottom right corner), and the last two lines just show the current file I am at.
+
+``:set nu! rnu!"`` Some people like relative numbers (really useful to repeat macros across any given number of lines)
+
+``set undodir=~/.vim/undodir
+set undofile ``
+
+I honestly don't get how some people use Vim on a daily basis without ever wondering *why the fuck doesn't it have permanent undo history by default*. Use this. 
+
+```
+set foldenable 
+set foldmethod=indent
+```
+
+Also obligatory. Sometimes you want an overview on the file without having to endlessly scroll through hundreds of lines of code. ``zc`` closes the current fold; ``zo`` will open it. ``C`` and `O` close and open *all* folds.
+
+``let mapleader = " "
+map <leader>b :buffers<CR>:buffer<Space>``
+
+Leader keys are a great concept in Vim. After you map a key as ``leader``, you can produce specific commands tailored to your own experience. This is an early experiment with that, since buffer management is not too intuitive. Now I press ``SPC b`` to see the list of open buffers. Real nice.
+
+``map <Down> <NOP>
+map <Up> <NOP>
+map <Left> <NOP>
+map <Right> <NOP>``
+
+Deactivates the arrow keys. Useful if you're transitioning to ``hjkl`` and also if you want to be an ass when people come over to your computer.
+
+``command! MakeTags !ctags -R.``
+
+This emulates a much needed feature when working with big projects. After you do ``MakeTags``, Vim will generate a ``tags`` folder that includes all the function definitions and what not. From there, you can ``ctrl + ]`` on any function declaration to jump to its definition. ``gt`` lets you come back to the previous file.
+
+¹ it's likely that you and Vim will disagree on the definition of *word*. Assume this_is_a_word, but this.is.not.a.word. So it will come with experience. 
