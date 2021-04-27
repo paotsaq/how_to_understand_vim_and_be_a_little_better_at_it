@@ -62,10 +62,10 @@ You can (and **should**) combine what we can think as *actions* (let's say, ever
 We want to change ``little`` for, say, ``loving``. The past you would right key to oblivion, of course, and all in ``INSERT MODE``; but future you will, more efficiently, ``f l cw loving ESC`` (with no spaces), which we will read as "*find ```l```; change word*", after which we input ``loving`` and then exit ``INSERT MODE``. That was sexy.
 Whenever you do *any* of ``d, c, v`` motions, you can use ``b, e, w`` (and some more to come) motions to specify *begin* or *end* of word ¹, or just the whole *word*. You might want, however, to change/delete/select - more generally, an *action* - up until a certain character. Suppose cursor at the beginning: ``d`` in ``def``. 
 
-<code>
-def very_sexy_function(my_arg, another_arg):\
+```python
+def very_sexy_function(my_arg, another_arg):
     return "most_holyness_of_sexy_vim"
-</code>
+```
 
 Now my boss just came into work; he sees me doing some silly powerful stuff in Python, and *of course* that function is sexy - but that is a very innapropriate behaviour in the workplace. I want to (most quickly!) change that!
  - <code>t/f</code> I don't really have good mnemonics for these (except *(un)til* for ``t``), but these are fundamental;
