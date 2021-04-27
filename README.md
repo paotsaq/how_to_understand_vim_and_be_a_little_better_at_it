@@ -103,8 +103,10 @@ These are obligatory. ``smartindent`` works really well for C (I mostly do that 
 
 ``:set nu! rnu!"`` Some people like relative numbers (really useful to repeat macros across any given number of lines)
 
-``set undodir=~/.vim/undodir
-set undofile ``
+```
+set undodir=~/.vim/undodir
+set undofile 
+```
 
 I honestly don't get how some people use Vim on a daily basis without ever wondering *why the fuck doesn't it have permanent undo history by default*. Use this. 
 
@@ -115,15 +117,18 @@ set foldmethod=indent
 
 Also obligatory. Sometimes you want an overview on the file without having to endlessly scroll through hundreds of lines of code. ``zc`` closes the current fold; ``zo`` will open it. ``C`` and `O` close and open *all* folds.
 
-``let mapleader = " "
-map <leader>b :buffers<CR>:buffer<Space>``
+```let mapleader = " "
+map <leader>b :buffers<CR>:buffer<Space>
+```
 
 Leader keys are a great concept in Vim. After you map a key as ``leader``, you can produce specific commands tailored to your own experience. This is an early experiment with that, since buffer management is not too intuitive. Now I press ``SPC b`` to see the list of open buffers. Real nice.
 
-``map <Down> <NOP>
+```
+map <Down> <NOP>
 map <Up> <NOP>
 map <Left> <NOP>
-map <Right> <NOP>``
+map <Right> <NOP>
+```
 
 Deactivates the arrow keys. Useful if you're transitioning to ``hjkl`` and also if you want to be an ass when people come over to your computer.
 
