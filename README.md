@@ -72,10 +72,10 @@ Now my boss just came into work; he sees me doing some silly powerful stuff in P
 So then, one could do ``fs``, which reads as "*find `s`*", and then `ct_` ("*change (un)til underscore*") - which would now place the cursor under ``
 INSERT MODE`` - and the name could now be ``very_appropriate_function`` instead.
 
-<code>
+```python
 def very_appropriate_function(my_arg, another_arg):  
     return "most_holyness_of_sexy_vim"
-</code>
+```
 
 All is good, except for the second line - our command didn't take care of that. However - and this is another very powerful command - all that's needed is ``jfs.``, where the ``.`` (dot) will **repeat your last action**. In this case, it will ``ct_`` on the line just below (we did ``j``).
 
@@ -88,7 +88,8 @@ Here are some good resources to improve your Vim:
 
 #### Regarding my (minimalistic) ``.vimrc``:
 
-``syntax on
+```vimscript
+syntax on
 filetype plugin on
 filetype plugin indent on
 set smartindent
@@ -96,7 +97,7 @@ set hlsearch
 set showcmd
 set laststatus=2
 set statusline+=%F
-``
+```
 
 These are obligatory. ``smartindent`` works really well for C (I mostly do that and Python), and ``hlsearch``is great to highlight matches on ``s``substitutions. ``showcmd`` is useful to show people some Vim tricks (the typed commands appear in the bottom right corner), and the last two lines just show the current file I am at.
 
