@@ -19,6 +19,8 @@ That is due to its powerful navigation, editing and automation capabilities - it
 
 I spend more time at the computer than I do with virtually any person *in my life*. It might not be healthy - but that's my job. So yes: I want Vim to be a lifelong companion that will make my life easier; at least, I need it to *actively avoid making my life miserable*. If you want to get better at Vim (and opening the possibility that you will *grok vi* sometime later), here are some tips:
 
+**⚠️ currently missing content on macros, which are very useful, and copy pasting across different files ⚠️ **
+
 #### do <code>vimtutor</code>.
 This is a command you run in your shell, launching an interactive tutorial on basic Vim motions. With this, you should learn how to navigate the file using the proper movements. Ideally you would do half, practice a day or two, and then finish the other half.
 
