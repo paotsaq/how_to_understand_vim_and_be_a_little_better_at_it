@@ -63,7 +63,7 @@ We want to change ``little`` for, say, ``loving``. The past you would right key 
 Whenever you do *any* of ``d, c, v`` motions, you can use ``b, e, w`` (and some more to come) motions to specify *begin* or *end* of word ¹, or just the whole *word*. You might want, however, to change/delete/select - more generally, an *action* - up until a certain character. Suppose cursor at the beginning: ``d`` in ``def``. 
 
 <code>
-def very_sexy_function(my_arg, another_arg):  
+def very_sexy_function(my_arg, another_arg):\
     return "most_holyness_of_sexy_vim"
 </code>
 
