@@ -56,14 +56,14 @@ And don't let your future self be thrown off by this - but all of these commands
 
 You can (and **should**) combine what we can think as *actions* (let's say, everything that was under heading number three) with motions (which we haven't really done yet). Practical example: suppose you have these rhymes in your file, and your cursor is at the beginning: ``M`` in Mary. 
 
-*Mary had a little lamb,
+*Mary had a little lamb,  
    Its fleece was white as snow*
 
 We want to change ``little`` for, say, ``loving``. The past you would right key to oblivion, of course, and all in ``INSERT MODE``; but future you will, more efficiently, ``f l cw loving ESC`` (with no spaces), which we will read as "*find ```l```; change word*", after which we input ``loving`` and then exit ``INSERT MODE``. That was sexy.
 Whenever you do *any* of ``d, c, v`` motions, you can use ``b, e, w`` (and some more to come) motions to specify *begin* or *end* of word ¹, or just the whole *word*. You might want, however, to change/delete/select - more generally, an *action* - up until a certain character. Suppose cursor at the beginning: ``d`` in ``def``. 
 
 <code>
-def very_sexy_function(my_arg, another_arg):
+def very_sexy_function(my_arg, another_arg):  
     return "most_holyness_of_sexy_vim"
 </code>
 
@@ -73,7 +73,7 @@ So then, one could do ``fs``, which reads as "*find `s`*", and then `ct_` ("*cha
 INSERT MODE`` - and the name could now be ``very_appropriate_function`` instead.
 
 <code>
-def very_appropriate_function(my_arg, another_arg):
+def very_appropriate_function(my_arg, another_arg):  
     return "most_holyness_of_sexy_vim"
 </code>
 
