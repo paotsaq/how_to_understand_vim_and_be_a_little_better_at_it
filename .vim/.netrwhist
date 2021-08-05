@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/Users/apinto/pipex_evaluation/srcs'
+let g:netrw_dirhist_5='/Users/apinto/pipex/srcs'
+let g:netrw_dirhist_4='/Users/apinto/pipex/tests'
+let g:netrw_dirhist_3='/Users/apinto/pipex/srcs'
+let g:netrw_dirhist_2='/Users/apinto/pipex'
+let g:netrw_dirhist_1='/Users/apinto/pipex/tests'
+let g:netrw_dirhist_0='/Users/apinto/pipex'
+let g:netrw_dirhist_9='/Users/apinto/pipex/srcs'
+let g:netrw_dirhist_8='/Users/apinto/pipex'
+let g:netrw_dirhist_7='/Users/apinto/pipex/srcs'
