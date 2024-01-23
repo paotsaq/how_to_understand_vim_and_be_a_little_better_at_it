@@ -1,47 +1,50 @@
-## I use Vim - and here's why you should use it too.
+## I use Vim - and that's it? Here are a few tips.
 
-Either I am very wrong - as in, DuckDuckGo 🦆 has been omitting critical results for the last couple of years - or, yes: **vim is the best text (code) editor out there**. And by a large margin.
+Vim is nice. Some people like it, some don't; but those that don't probably are expecting different things from their text editor. So here I have some tips to maybe understand why Vim is so special. But you don't need to, like, understand it. Using whatever is fine. As long as you're happy. 🎈
 
-### Why is it better?
+### Why do you like it so much, Alex?
 
-That is due to its powerful navigation, editing and automation capabilities - it does wonders in abstracting patterns in the code that will save you both time and keystrokes. But Vim is also good just because the competition is *bad*. Text (code) editing has existed for more than 50 years now - an what has VSCode *really* done for you in terms of innovation or typing efficiency?
+That is due to its powerful navigation, editing and automation capabilities. I'll give some examples below, but I just find it to be much faster, and it is usually available in many different environments. It does wonders in abstracting patterns in the code that will save you both time and keystrokes. As a consequence, I use the mouse less, and now I'm much more appreciative of keyboard navigation.
 
-### Hey, man - you know nothing! Vim is ugly, and slow, and clunky 😠 Plus it has no colors. And sometimes it won't let me use the mouse. I need the mouse. I like my text editors as I like my games: first person shooters 🔫
+### What if my experience with vim was really traumatic? 😥 Like not even knowing how to leave the editor, or losing work because it has no proper _undo history_?
 
-[*"Your problem with Vim is that you don't grok vi."*](https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118). There - I just sent you down a rabbitwhole from which you shall emerge a different person. But in case you don't really care for in-depth StackOverflow replies that *should* change your life, here's my take on whether Vim is:
- - **👹 ugly**: no, *you are*. Vim is *barebones*, maybe. And Vim works in a command line. That is, at most, quirky. Never ugly;
- - **😴 slow**: no - *all others are*. A good (or, mind you, just *decent* will do) understanding how Vim modes work, plus and a handful of shortcuts, will make your productivity skyrocket - you will type less and have more code done;
- - **🛠 clunky**: no - *only if you use it wrong*. It will certainly punish you for not looking out for help *if you feel you're not doing it right*. Be critical about your usage: *"is this the best way for me to handle this task?* If you repeatedly use the arrow keys to delete text: wrong. If you enter ``INSERT MODE`` to delete text: wrong. I will, later on, provide some more examples of clunkyness. Please bear with my ranting first.
- - **🌈 colors**: oh - it most definitely has colors.
- - **🐁 the mouse**: don't use it. Never ever. Mice are **not good**. Have the same attitude towards the computer mouse as you do with the *real* mice. Learn how to navigate the file directories using the shell; command line interfaces (CLI) over graphical user interfaces (GUI) generally yield more powerful tools. You do not need the mouse - the mouse was invented much later than computers. With basic knowledge of Vim, you can *select text* and *nagivate the code*. Isn't that what you're using the mouse for?
+Oh — I'm very sorry about that, and maybe we can mend your relationship with this tool, if you're up for it ❤️‍🩹 in fact, it can be quite frustrating to drop into the world of vim without any proper context. It's like playing [Dwarf Fortress](http://www.bay12games.com/dwarves/) having come from 3D, latest generation games. Yikes! 😱
 
-### I bet you're a no lifer anyway who's got no friends because all the efforts into nurturing and caring for a relationship go towards your stupid Vim.
+Here are some tips:
 
-I spend more time at the computer than I do with virtually any person *in my life*. It might not be healthy - but that's my job. So yes: I want Vim to be a lifelong companion that will make my life easier; at least, I need it to *actively avoid making my life miserable*. If you want to get better at Vim (and opening the possibility that you will *grok vi* sometime later), here are some tips:
+#### take it slow and easy! 🤸 
+
+Vim is a bit dense at first, and it can get frustrating to work at a slower pace than you're used to — at the beginning. It's like learning to write with your other hand: you know _you're faster with your usual hand_, but you're also aware that _eventually_ you'll get it. There are probably better analogies. Just take a breather every once in a while.
+
+#### check some youtube videos, or something
+
+Just to make sure _you understand why vim is an option for some people_. And see what proper Vim usage can do. If it resonates with you, the added motivation will probably help you get farther, and be a little easier on yourself for not getting it right away 🫶 [here's a classic StackOverflow thread](https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118) in which people discuss their most productive Vim workflows:
 
 ⚠️ **currently missing content on macros, which are very useful, and copy pasting across different files** ⚠️ 
 
-#### do <code>vimtutor</code>.
+#### do <code>vimtutor</code> on your terminal
+
 This is a command you run in your shell, launching an interactive tutorial on basic Vim motions. With this, you should learn how to navigate the file using the proper movements. Ideally you would do half, practice a day or two, and then finish the other half.
 
-#### Do proper and efficient navigation. From broader to more particular instructions:
+#### here are some tips for efficient navigation. From broader to more particular instructions:
+- <code>h, j, k, l</code> fine movements for small adjustments (if you do these motions **repeatedly**, odds are there was a more efficient way);
  - <code>G/gg</code> to reach the top and bottom of a page, respectively.
  - <code>ctrl + u/d</code> to scroll up or down a page;
  - <code>nG</code> jumps to the *n*th line;
     *or*
  - <code>[?/][pattern]</code> jumps [backwards/forward] to a specific *pattern*;
  - <code>f</code> *finds* a character - this is *immensely* useful - and then ``;`` jumps to the next occurence (``F``will lookup *backwards*);
- - <code>nw</code> jump to the *n*th word in line;
+ - <code>nw</code> jump to the *n*th word from where your cursor stands;
  - <code>$/^</code> jump to the beginning or end of line, respectively;
- - <code>h, j, k, l</code> fine movements for small adjustments (if you do these motions **repeatedly**, odds are there was a more efficient way);
+ 
 Thus, the general procedure should be to move with a major movement (a jump or a search), and then fine tune using word motions and then character motions.
 
 #### Having the basic workflow to navigate around the code, now you can unlock some simple specific keybindings for insertion and editing:
- - <code>i</code> inserts text as cursor - but you already knew that (except you most likely used it to navigate the text too - naughty!). 
- - <code>a</code> appends (inserts) text *after* the cursor (no more ``INSERT MODE`` to right arrow after a line break!);
- - <code>x</code> deletes a character *under* the cursor (no more ``INSERT MODE`` to backspace the text!);
- - <code>r</code> replaces a character *under* the cursor (no more ``INSERT MODE`` to backspace the text, and then rewrite!);
- - <code>o</code> opens a line *below* the cursor (no more ``INSERT MODE`` to press enter!);
+ - <code>i</code> inserts text as cursor (I'd recommend avoiding this mode to navigate the text 😗). 
+ - <code>a</code> appends (inserts) text *after* the cursor (instead of ``INSERT MODE`` to right arrow after a line break);
+ - <code>x</code> deletes a character *under* the cursor (instead of ``INSERT MODE`` to backspace the text);
+ - <code>r</code> replaces a character *under* the cursor (instead of ``INSERT MODE`` to backspace the text, and then rewrite);
+ - <code>o</code> opens a line *below* the cursor (instead of ``INSERT MODE`` to press enter);
 
 And don't let your future self be thrown off by this - but all of these commands have the UPPER CASE equivalent (``i`` becomes ``I``) which slightly (and most conveniently) modifies its behaviour. Try it out!
 
@@ -54,12 +57,13 @@ And don't let your future self be thrown off by this - but all of these commands
 
 #### Now, just learn about some major motions and you'll be fine. **This** is what Vim is all about, but I probably suck at explaining this part.
 
-You can (and **should**) combine what we can think as *actions* (let's say, everything that was under heading number three) with motions (which we haven't really done yet). Practical example: suppose you have these rhymes in your file, and your cursor is at the beginning: ``M`` in Mary. 
+We can combine what we can think as *actions* (let's say, everything that was under heading number three) with motions (which we haven't really done yet). Practical example: suppose you have these rhymes in your file, and your cursor is at the beginning: ``M`` in Mary. 
 
 *Mary had a little lamb,  
    Its fleece was white as snow*
 
-We want to change ``little`` for, say, ``loving``. The past you would right key to oblivion, of course, and all in ``INSERT MODE``; but future you will, more efficiently, ``f l cw loving ESC`` (with no spaces), which we will read as "*find ```l```; change word*", after which we input ``loving`` and then exit ``INSERT MODE``. That was sexy.
+We want to change ``little`` for, say, ``loving``. Consider ``f l cw loving ESC`` (with no spaces), which we will read as "*find ```l```; change word*", after which we input ``loving`` and then exit ``INSERT MODE``. That was nice!
+
 Whenever you do *any* of ``d, c, v`` motions, you can use ``b, e, w`` (and some more to come) motions to specify *begin* or *end* of word ¹, or just the whole *word*. You might want, however, to change/delete/select - more generally, an *action* - up until a certain character. Suppose cursor at the beginning: ``d`` in ``def``. 
 
 ```python
@@ -79,12 +83,12 @@ def very_appropriate_function(my_arg, another_arg):
 
 All is good, except for the second line - our command didn't take care of that. However - and this is another very powerful command - all that's needed is ``jfs.``, where the ``.`` (dot) will **repeat your last action**. In this case, it will ``ct_`` on the line just below (we did ``j``).
 
-#### There's more, but this is already too much information, and it's likely that I lost you halfway for VSCode anyway.
+#### There's more, but this is already too much information, and I want to go touch some grass 🌳
 
 Here are some good resources to improve your Vim:
-- DuckDuckGo: it's likely whatever problem you have, or feature you need implemented, is out there already. Look for it.
+- DuckDuckGo: it's likely whatever problem you have, or feature you need implemented, is out there already — good luck in finding it out! 🔍 
 - Vim Wiki: you will learn something on each visit. https://vim.fandom.com/wiki/
-- **Mastering Vim Quickly: From WTF to OMG in no time** by Jovica Ilic: the title is a little over-the-top (not that you're not used to that, right?) but the content is very good.
+- **Mastering Vim Quickly: From WTF to OMG in no time** by Jovica Ilic: the title is a little over-the-top 😀 but the content is very good.
 
 #### Regarding my (minimalistic) ``.vimrc``:
 
@@ -99,7 +103,7 @@ set laststatus=2
 set statusline+=%F
 ```
 
-These are obligatory. ``smartindent`` works really well for C (I mostly do that and Python), and ``hlsearch``is great to highlight matches on ``s``substitutions. ``showcmd`` is useful to show people some Vim tricks (the typed commands appear in the bottom right corner), and the last two lines just show the current file I am at.
+These are almost obligatory. ``smartindent`` works really well for C (I mostly do that and Python), and ``hlsearch``is great to highlight matches on ``s``substitutions. ``showcmd`` is useful to show people some Vim tricks (the typed commands appear in the bottom right corner), and the last two lines just show the current file I am at.
 
 ``:set nu! rnu!"`` Some people like relative numbers (really useful to repeat macros across any given number of lines)
 
@@ -108,7 +112,7 @@ set undodir=~/.vim/undodir
 set undofile 
 ```
 
-I honestly don't get how some people use Vim on a daily basis without ever wondering *why the fuck doesn't it have permanent undo history by default*. Use this. 
+This enables permanent undo history. It's curious how so many people don't ever care about enabling this — you can close the file, come back later, and your undo history _will be there_. It's so reassuring 💞
 
 ```
 set foldenable 
@@ -130,10 +134,6 @@ map <Left> <NOP>
 map <Right> <NOP>
 ```
 
-Deactivates the arrow keys. Useful if you're transitioning to ``hjkl`` and also if you want to be an ass when people come over to your computer.
-
-``command! MakeTags !ctags -R.``
-
-This emulates a much needed feature when working with big projects. After you do ``MakeTags``, Vim will generate a ``tags`` folder that includes all the function definitions and what not. From there, you can ``ctrl + ]`` on any function declaration to jump to its definition. ``gt`` lets you come back to the previous file.
+Deactivates the arrow keys. Useful if you're transitioning to ``hjkl``, but then you have to explain why your arrows do not work when other people work on your machine 🙃
 
 ¹ it's likely that you and Vim will disagree on the definition of *word*. Assume this_is_a_word, but this.is.not.a.word. So it will come with experience. 
